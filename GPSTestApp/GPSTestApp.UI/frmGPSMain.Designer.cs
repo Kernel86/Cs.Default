@@ -41,17 +41,22 @@
             this.lblAccuracy = new System.Windows.Forms.Label();
             this.lblCourse = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGo
             // 
-            this.btnGo.Location = new System.Drawing.Point(87, 231);
+            this.btnGo.Location = new System.Drawing.Point(38, 206);
             this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(75, 23);
+            this.btnGo.Size = new System.Drawing.Size(137, 23);
             this.btnGo.TabIndex = 0;
-            this.btnGo.Text = "Start";
+            this.btnGo.Text = "Location Services Start";
             this.btnGo.UseVisualStyleBackColor = true;
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
@@ -97,7 +102,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblLong);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(37, 53);
+            this.groupBox1.Location = new System.Drawing.Point(13, 35);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(195, 73);
             this.groupBox1.TabIndex = 5;
@@ -108,9 +113,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 364);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 239);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(278, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(222, 22);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -122,7 +127,7 @@
             // lblAlt
             // 
             this.lblAlt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblAlt.Location = new System.Drawing.Point(106, 129);
+            this.lblAlt.Location = new System.Drawing.Point(82, 134);
             this.lblAlt.Name = "lblAlt";
             this.lblAlt.Size = new System.Drawing.Size(118, 23);
             this.lblAlt.TabIndex = 7;
@@ -131,7 +136,7 @@
             // lblSpeed
             // 
             this.lblSpeed.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblSpeed.Location = new System.Drawing.Point(106, 175);
+            this.lblSpeed.Location = new System.Drawing.Point(82, 157);
             this.lblSpeed.Name = "lblSpeed";
             this.lblSpeed.Size = new System.Drawing.Size(118, 23);
             this.lblSpeed.TabIndex = 8;
@@ -140,7 +145,7 @@
             // lblAccuracy
             // 
             this.lblAccuracy.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblAccuracy.Location = new System.Drawing.Point(106, 152);
+            this.lblAccuracy.Location = new System.Drawing.Point(82, 111);
             this.lblAccuracy.Name = "lblAccuracy";
             this.lblAccuracy.Size = new System.Drawing.Size(118, 23);
             this.lblAccuracy.TabIndex = 9;
@@ -149,7 +154,7 @@
             // lblCourse
             // 
             this.lblCourse.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblCourse.Location = new System.Drawing.Point(106, 198);
+            this.lblCourse.Location = new System.Drawing.Point(82, 180);
             this.lblCourse.Name = "lblCourse";
             this.lblCourse.Size = new System.Drawing.Size(118, 23);
             this.lblCourse.TabIndex = 10;
@@ -158,17 +163,67 @@
             // lblTime
             // 
             this.lblTime.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblTime.Location = new System.Drawing.Point(106, 27);
+            this.lblTime.Location = new System.Drawing.Point(82, 9);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(118, 23);
             this.lblTime.TabIndex = 11;
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Timestamp:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(28, 116);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Accuracy";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(35, 139);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Altitude:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(39, 162);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Speed:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(37, 185);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Course:";
+            // 
             // frmGPSMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 386);
+            this.ClientSize = new System.Drawing.Size(222, 261);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblCourse);
             this.Controls.Add(this.lblAccuracy);
@@ -177,6 +232,8 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmGPSMain";
             this.Text = "GPS Test App";
             this.groupBox1.ResumeLayout(false);
@@ -203,6 +260,11 @@
         private System.Windows.Forms.Label lblAccuracy;
         private System.Windows.Forms.Label lblCourse;
         private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
 

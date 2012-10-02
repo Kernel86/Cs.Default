@@ -1,4 +1,12 @@
-﻿using System;
+﻿/**************************************************************************
+ *
+ * GPS Test App
+ * [frmGPSMain.c]
+ * Copyright (C) 2012 Shawn Novak - Kernel86@muleslow.net
+ *
+ *************************************************************************/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +21,7 @@ namespace GPSTestApp.UI
 {
     public partial class frmGPSMain : Form
     {
-        GeoCoordinateWatcher watcher;
+        GeoCoordinateWatcher _watcher;
 
         public frmGPSMain()
         {
@@ -23,18 +31,62 @@ namespace GPSTestApp.UI
 
         private void btnGo_Click(object sender, EventArgs e)
         {
-            if (watcher == null)
+            // Configure Watcher
+            if (_watcher == null)
             {
-                watcher = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
-                //watcher.MovementThreshold = 0;
-
-                watcher.StatusChanged += new EventHandler<GeoPositionStatusChangedEventArgs>(watcher_StatusChanged);
-                watcher.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(watcher_PositionChanged);
+                _watcher = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
+                _watcher.StatusChanged += new EventHandler<GeoPositionStatusChangedEventArgs>(_watcher_StatusChanged);
+                _watcher.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(_watcher_PositionChanged);
             }
-            watcher.Start();
+
+            // Start _watcher
+            _watcher.Start();
         }
 
-        void watcher_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
+        // Enum for globe planes
+        private enum Plane
+        {
+            Horizontal,
+            Vertical
+        }
+
+        // Convert decimal coordinates to formatted degrees
+        private string decimalToDegree(double coordinate, Plane plane)
+        {
+            string pole = String.Empty;
+
+            // Get compass direction
+            if (plane == Plane.Horizontal)
+            {
+                // 90(N)-0-90(S)
+                if (coordinate > 0)
+                    pole = "N";
+                else if (coordinate < 0)
+                    pole = "S";
+            }
+            else if (plane == Plane.Vertical)
+            {
+                // 180(E)-0-180(W)
+                if (coordinate > 0)
+                    pole = "E";
+                else if (coordinate < 0)
+                    pole = "W";
+            }
+
+            // Degrees are the integer portion of the coordinate
+            int degree = (int)coordinate;
+            // Total seconds are the decimal porttion of the coordinate times 3600, the number of seconds in a degree
+            double totalseconds = -1 * (coordinate - degree) * 3600;
+            // Minutes
+            int minutes = (int)(totalseconds / 60);
+            double seconds = totalseconds - minutes * 60;
+
+            // Return the formatted coordinate
+            return pole + " " + degree.ToString() + "°" + minutes.ToString() + "'" + seconds.ToString("N3") + "\"";
+        }
+
+        // Handle location services status changes
+        private void _watcher_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
         {
             switch (e.Status)
             {
@@ -50,71 +102,41 @@ namespace GPSTestApp.UI
             }
         }
 
-
-        private enum Plane
+        // Handle location change updates
+        private void _watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
         {
-            Horizontal,
-            Vertical
-        }
+            lblStatus.Text = String.Empty;
 
-        private string decimalToDegree(double coordinate, Plane plane)
-        {
-            string pole = String.Empty;
-
-            if (plane == Plane.Horizontal)
-            {
-                if (coordinate > 0)
-                    pole = "N";
-                else if (coordinate < 0)
-                    pole = "S";
-            }
-            else
-            {
-                if (coordinate > 0)
-                    pole = "E";
-                else if (coordinate < 0)
-                    pole = "W";
-            }
-
-            int degree = (int)coordinate;
-            double seconds = (coordinate - degree) * 3600;
-            int feet = (int)(seconds / 60);
-            double inches = seconds - feet * 60;
-
-            return pole + " " + degree.ToString() + "°" + feet.ToString() + "'" + inches.ToString("N3") + "\"";
-        }
-
-        void watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
-        {
+            // Check if Location Services have located us
             if (e.Position.Location.IsUnknown)
-            {
                 lblStatus.Text = "Please wait while your position is determined....";
-                return;
+            else
+            {
+                // Display values
+                lblTime.Text = e.Position.Timestamp.ToString();
+                lblLat.Text = decimalToDegree(e.Position.Location.Latitude, Plane.Horizontal);
+                lblLong.Text = decimalToDegree(e.Position.Location.Longitude, Plane.Vertical);
+
+                if (e.Position.Location.VerticalAccuracy.ToString() == "NaN")
+                    lblAccuracy.Text = "0 m";
+                else
+                    lblAccuracy.Text = e.Position.Location.HorizontalAccuracy.ToString() + " m";
+
+                if (e.Position.Location.Altitude.ToString() == "NaN")
+                    lblAlt.Text = "0 m";
+                else
+                    lblAlt.Text = e.Position.Location.Altitude.ToString() + " m";
+
+                if (e.Position.Location.Speed.ToString() == "NaN")
+                    lblSpeed.Text = "0 m/s";
+                else
+                    lblSpeed.Text = e.Position.Location.Speed.ToString() + " m/s";
+
+                if (e.Position.Location.Course.ToString() == "NaN")
+                    lblCourse.Text = "0°";
+                else
+                    lblCourse.Text = e.Position.Location.Course.ToString() + "°";
             }
-            else
-                lblStatus.Text = String.Empty;
-
-            lblTime.Text = e.Position.Timestamp.ToString();
-
-            lblLat.Text = decimalToDegree(e.Position.Location.Latitude, Plane.Horizontal);
-
-            lblLong.Text = decimalToDegree(e.Position.Location.Longitude, Plane.Vertical);
-            if (e.Position.Location.Altitude.ToString() == "NaN")
-                lblAlt.Text = "0 m";
-            else
-                lblAlt.Text = e.Position.Location.Altitude.ToString() + " m";
-            if (e.Position.Location.VerticalAccuracy.ToString() == "NaN")
-                lblAccuracy.Text = "0 m";
-            else
-                lblAccuracy.Text = e.Position.Location.VerticalAccuracy.ToString() + " m";
-            if (e.Position.Location.Speed.ToString()  == "NaN")
-                lblSpeed.Text = "0 m/s";
-            else
-                lblSpeed.Text = e.Position.Location.Speed.ToString() + " m/s";
-            if (e.Position.Location.Course.ToString() == "NaN")
-                lblCourse.Text = "0°";
-            else
-                lblCourse.Text = e.Position.Location.Course.ToString() + "°";
         }
     }
 }
