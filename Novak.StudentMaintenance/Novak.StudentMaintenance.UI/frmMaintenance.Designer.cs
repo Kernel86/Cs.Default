@@ -1,6 +1,6 @@
 ﻿namespace Novak.StudentMaintenance.UI
 {
-    partial class Form1
+    partial class frmMaintenance
     {
         /// <summary>
         /// Required designer variable.

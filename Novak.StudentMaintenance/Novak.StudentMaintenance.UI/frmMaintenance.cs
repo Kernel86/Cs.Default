@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Novak.StudentMaintenance.UI
 {
-    public partial class Form1 : Form
+    public partial class frmMaintenance : Form
     {
-        public Form1()
+        public frmMaintenance()
         {
             InitializeComponent();
         }
