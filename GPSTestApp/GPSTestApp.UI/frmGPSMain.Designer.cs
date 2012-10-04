@@ -46,6 +46,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnGPSStart = new System.Windows.Forms.Button();
+            this.btnGPSStop = new System.Windows.Forms.Button();
+            this.lstGPS = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -115,7 +118,7 @@
             this.lblStatus});
             this.statusStrip1.Location = new System.Drawing.Point(0, 239);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(222, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(816, 22);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -214,11 +217,42 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "Course:";
             // 
+            // btnGPSStart
+            // 
+            this.btnGPSStart.Location = new System.Drawing.Point(293, 206);
+            this.btnGPSStart.Name = "btnGPSStart";
+            this.btnGPSStart.Size = new System.Drawing.Size(89, 23);
+            this.btnGPSStart.TabIndex = 16;
+            this.btnGPSStart.Text = "GPS Start";
+            this.btnGPSStart.UseVisualStyleBackColor = true;
+            this.btnGPSStart.Click += new System.EventHandler(this.btnGPSStart_Click);
+            // 
+            // btnGPSStop
+            // 
+            this.btnGPSStop.Location = new System.Drawing.Point(436, 206);
+            this.btnGPSStop.Name = "btnGPSStop";
+            this.btnGPSStop.Size = new System.Drawing.Size(89, 23);
+            this.btnGPSStop.TabIndex = 17;
+            this.btnGPSStop.Text = "GPS Stop";
+            this.btnGPSStop.UseVisualStyleBackColor = true;
+            this.btnGPSStop.Click += new System.EventHandler(this.btnGPSStop_Click);
+            // 
+            // lstGPS
+            // 
+            this.lstGPS.FormattingEnabled = true;
+            this.lstGPS.Location = new System.Drawing.Point(236, 9);
+            this.lstGPS.Name = "lstGPS";
+            this.lstGPS.Size = new System.Drawing.Size(566, 186);
+            this.lstGPS.TabIndex = 18;
+            // 
             // frmGPSMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(222, 261);
+            this.ClientSize = new System.Drawing.Size(816, 261);
+            this.Controls.Add(this.lstGPS);
+            this.Controls.Add(this.btnGPSStop);
+            this.Controls.Add(this.btnGPSStart);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -236,6 +270,7 @@
             this.MaximizeBox = false;
             this.Name = "frmGPSMain";
             this.Text = "GPS Test App";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmGPSMain_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -265,6 +300,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnGPSStart;
+        private System.Windows.Forms.Button btnGPSStop;
+        private System.Windows.Forms.ListBox lstGPS;
     }
 }
 
