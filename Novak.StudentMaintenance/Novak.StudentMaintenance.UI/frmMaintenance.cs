@@ -20,14 +20,26 @@ namespace Novak.StudentMaintenance.UI
 
         private void btnMakePerson_Click(object sender, EventArgs e)
         {
-            CPerson oPerson = new CPerson();
+            //CPerson oPerson = new CPerson();
 
-            oPerson.Firstname = txtFirstname.Text;
-            oPerson.Lastname = txtLastname.Text;
+            //oPerson.Firstname = txtFirstname.Text;
+            //oPerson.Lastname = txtLastname.Text;
 
-            lblFullname.Text = oPerson.Fullname;
+            //lblFullname.Text = oPerson.Fullname;
 
-            oPerson = null;
+            //oPerson = null;
+        }
+
+        private void btnMakeStudent_Click(object sender, EventArgs e)
+        {
+            CStudent oStudent = new CStudent();
+
+            oStudent.Firstname = txtFirstname.Text;
+            oStudent.Lastname = txtLastname.Text;
+
+            lblFullname.Text = oStudent.Fullname;
+
+            oStudent = null;
         }
     }
 }

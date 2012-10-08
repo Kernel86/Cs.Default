@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Novak.StudentMaintenance.BL
 {
-    public class CPerson
+    public abstract class CPerson
     {
         // Private Fields
         private string _id;

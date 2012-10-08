@@ -32,6 +32,7 @@
             this.txtFirstname = new System.Windows.Forms.TextBox();
             this.txtLastname = new System.Windows.Forms.TextBox();
             this.lblFullname = new System.Windows.Forms.Label();
+            this.btnMakeStudent = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMakePerson
@@ -66,11 +67,22 @@
             this.lblFullname.Size = new System.Drawing.Size(0, 13);
             this.lblFullname.TabIndex = 3;
             // 
+            // btnMakeStudent
+            // 
+            this.btnMakeStudent.Location = new System.Drawing.Point(118, 64);
+            this.btnMakeStudent.Name = "btnMakeStudent";
+            this.btnMakeStudent.Size = new System.Drawing.Size(100, 23);
+            this.btnMakeStudent.TabIndex = 4;
+            this.btnMakeStudent.Text = "Make Student";
+            this.btnMakeStudent.UseVisualStyleBackColor = true;
+            this.btnMakeStudent.Click += new System.EventHandler(this.btnMakeStudent_Click);
+            // 
             // frmMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.btnMakeStudent);
             this.Controls.Add(this.lblFullname);
             this.Controls.Add(this.txtLastname);
             this.Controls.Add(this.txtFirstname);
@@ -88,6 +100,7 @@
         private System.Windows.Forms.TextBox txtFirstname;
         private System.Windows.Forms.TextBox txtLastname;
         private System.Windows.Forms.Label lblFullname;
+        private System.Windows.Forms.Button btnMakeStudent;
     }
 }
 

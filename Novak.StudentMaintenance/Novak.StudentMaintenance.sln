@@ -5,9 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Novak.StudentMaintenance.UI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Novak.StudentMaintenance.BL", "Novak.StudentMaintenance.BL\Novak.StudentMaintenance.BL.csproj", "{0136997B-BF31-4C5F-B91E-19C7B2A29C58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Novak.StudentMaintenance.Utilities.PL", "Novak.StudentMaintenance.Utilities.PL\Novak.StudentMaintenance.Utilities.PL.csproj", "{4E9DFA08-071F-41E8-8820-2BB8DC53920E}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
+		SccNumberOfProjects = 4
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://shawnnovak.tfspreview.com/defaultcollection
 		SccLocalPath0 = .
@@ -17,6 +19,9 @@ Global
 		SccProjectUniqueName2 = Novak.StudentMaintenance.BL\\Novak.StudentMaintenance.BL.csproj
 		SccProjectName2 = Novak.StudentMaintenance.BL
 		SccLocalPath2 = Novak.StudentMaintenance.BL
+		SccProjectUniqueName3 = Novak.StudentMaintenance.Utilities.PL\\Novak.StudentMaintenance.Utilities.PL.csproj
+		SccProjectName3 = Novak.StudentMaintenance.Utilities.PL
+		SccLocalPath3 = Novak.StudentMaintenance.Utilities.PL
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +52,16 @@ Global
 		{0136997B-BF31-4C5F-B91E-19C7B2A29C58}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0136997B-BF31-4C5F-B91E-19C7B2A29C58}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0136997B-BF31-4C5F-B91E-19C7B2A29C58}.Release|x86.ActiveCfg = Release|Any CPU
+		{4E9DFA08-071F-41E8-8820-2BB8DC53920E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E9DFA08-071F-41E8-8820-2BB8DC53920E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E9DFA08-071F-41E8-8820-2BB8DC53920E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4E9DFA08-071F-41E8-8820-2BB8DC53920E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4E9DFA08-071F-41E8-8820-2BB8DC53920E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4E9DFA08-071F-41E8-8820-2BB8DC53920E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E9DFA08-071F-41E8-8820-2BB8DC53920E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E9DFA08-071F-41E8-8820-2BB8DC53920E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4E9DFA08-071F-41E8-8820-2BB8DC53920E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4E9DFA08-071F-41E8-8820-2BB8DC53920E}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
