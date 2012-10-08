@@ -14,76 +14,57 @@ namespace Novak.Calculator.Logic
 {
     public class CCalculator
     {
+    // Private Properties
         private string _sOp;
         private bool _bPend;
         private bool _bEx;
         private decimal _dA, _dB;
         private decimal _dResult;
 
+    // Public Properties
         public string Op
         {
             get { return _sOp; }
             set { _sOp = value; _bPend = true; }
         }
+
         public bool PendingOp
         {
             get { return _bPend; }
             set { _bPend = value; }
         }
+
         public bool Exception
         {
             get { return _bEx; }
             set { _bEx = value; }
         }
+
         public decimal A
         {
             get { return _dA; }
             set { _dA = value; }
         }
+
         public decimal B
         {
             get { return _dB; }
             set { _dB = value; }
         }
+
         public decimal Result
         {
             get { return _dResult; }
             set { _dResult = value; }
         }
 
+    // Constructors
         public CCalculator()
         {
             _bPend = false;
         }
 
-        public void Update()
-        {
-            switch (_sOp)
-            {
-                case "+":
-                    this.Add();
-                    break;
-                case "-":
-                    this.Subtract();
-                    break;
-                case "*":
-                    this.Multiply();
-                    break;
-                case "/":
-                    try
-                    {
-                        this.Divide();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw ex;
-                    }
-                    break;
-            }
-            _bPend = false;
-            _dA = _dResult;
-        }
-
+    // Private Methods
         private decimal Add()
         {
             _dResult = _dA + _dB;
@@ -114,6 +95,35 @@ namespace Novak.Calculator.Logic
                 _dResult = _dA / _dB;
                 return _dResult;
             }
+        }
+
+    //Public Methods
+        public void Update()
+        {
+            switch (_sOp)
+            {
+                case "+":
+                    this.Add();
+                    break;
+                case "-":
+                    this.Subtract();
+                    break;
+                case "*":
+                    this.Multiply();
+                    break;
+                case "/":
+                    try
+                    {
+                        this.Divide();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                    break;
+            }
+            _bPend = false;
+            _dA = _dResult;
         }
 
         public decimal Sign(decimal dA)
