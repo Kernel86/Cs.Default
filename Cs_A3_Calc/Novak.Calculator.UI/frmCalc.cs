@@ -115,8 +115,8 @@ namespace Novak.Calculator.UI
             // Check for an exception
             if (oCalc.Exception == false)
             {
-                // Check for a pending operation and input value
-                if (oCalc.PendingOp == true && lblResult.Text.Length > 0)
+                // Check for a pending operation and input value, or a repeat operation
+                if ((oCalc.PendingOp == true && lblResult.Text.Length > 0) || oCalc.Result.ToString() == lblResult.Text)
                 {
                     // Store the input
                     oCalc.B = decimal.Parse(lblResult.Text);

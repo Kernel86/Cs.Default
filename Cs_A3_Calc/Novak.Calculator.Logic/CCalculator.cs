@@ -62,6 +62,7 @@ namespace Novak.Calculator.Logic
         public CCalculator()
         {
             _bPend = false;
+            _bEx = false;
         }
 
     // Private Methods
