@@ -45,6 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CAddress.cs" />
+    <Compile Include="CAddresses.cs" />
+    <Compile Include="CAddressType.cs" />
+    <Compile Include="CAddressTypes.cs" />
     <Compile Include="CPerson.cs" />
     <Compile Include="CStudent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

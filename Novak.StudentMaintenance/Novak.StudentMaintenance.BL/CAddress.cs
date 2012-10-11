@@ -13,6 +13,7 @@ namespace Novak.StudentMaintenance.BL
 
     public class CAddress
     {
+    // Private Properties
         private int _id;
         private AddressType _type;
         private string _street;
@@ -20,6 +21,7 @@ namespace Novak.StudentMaintenance.BL
         private string _state;
         private string _zip;
 
+    // Public Properties
         public int Id
         {
             get { return _id; }
