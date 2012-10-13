@@ -49,6 +49,7 @@
             this.btnGPSStart = new System.Windows.Forms.Button();
             this.btnGPSStop = new System.Windows.Forms.Button();
             this.lstGPS = new System.Windows.Forms.ListBox();
+            this.btnGPSEnable = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -245,11 +246,22 @@
             this.lstGPS.Size = new System.Drawing.Size(566, 186);
             this.lstGPS.TabIndex = 18;
             // 
+            // btnGPSEnable
+            // 
+            this.btnGPSEnable.Location = new System.Drawing.Point(689, 206);
+            this.btnGPSEnable.Name = "btnGPSEnable";
+            this.btnGPSEnable.Size = new System.Drawing.Size(89, 23);
+            this.btnGPSEnable.TabIndex = 19;
+            this.btnGPSEnable.Text = "GPS Enable";
+            this.btnGPSEnable.UseVisualStyleBackColor = true;
+            this.btnGPSEnable.Click += new System.EventHandler(this.btnGPSEnable_Click);
+            // 
             // frmGPSMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 261);
+            this.Controls.Add(this.btnGPSEnable);
             this.Controls.Add(this.lstGPS);
             this.Controls.Add(this.btnGPSStop);
             this.Controls.Add(this.btnGPSStart);
@@ -303,6 +315,7 @@
         private System.Windows.Forms.Button btnGPSStart;
         private System.Windows.Forms.Button btnGPSStop;
         private System.Windows.Forms.ListBox lstGPS;
+        private System.Windows.Forms.Button btnGPSEnable;
     }
 }
 

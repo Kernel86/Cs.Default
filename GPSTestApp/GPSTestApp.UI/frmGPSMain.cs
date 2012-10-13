@@ -126,8 +126,6 @@ namespace GPSTestApp.UI
                     _gps = new CGPS("COM11", 4800);
                     _gps.Start();
                     _gps.DataReceived += _gps_DataReceived;
-                    
-                    //lstGPS.Items.Add(_gps.ReadLine());
                 }
 
             }
@@ -344,6 +342,17 @@ namespace GPSTestApp.UI
             _gps.Dispose();
             _gps = null;
             btnGo.Enabled = true;
+        }
+
+        private void btnGPSEnable_Click(object sender, EventArgs e)
+        {
+            _gps.Send += _gpsSend;
+            _gps.Enable();
+        }
+
+        private void _gpsSend(object sender, string s)
+        {
+            MessageBox.Show(s);
         }
     }
 }
